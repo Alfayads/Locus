@@ -1,11 +1,9 @@
 'use client';
 
-import { useSelector } from 'react-redux';
 import TestComponent from '@/components/TestComponent';
+import ReduxTest from '@/components/ReduxTest';
 
 export default function Home() {
-  // This will demonstrate Redux is working (even with empty store)
-  const storeState = useSelector((state) => state);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -52,8 +50,9 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="mt-6">
+            <div className="mt-6 space-y-4">
               <TestComponent />
+              <ReduxTest />
             </div>
           </div>
         </div>
