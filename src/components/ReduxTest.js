@@ -1,8 +1,12 @@
-'use client';
+"use client";
 
-import { useSelector, useDispatch } from 'react-redux';
-import { setGuestMode, resetAuth, selectAuth } from '@/store/slices/authSlice';
-import { addGuestTask, clearGuestTasks, selectGuestTasks } from '@/store/slices/tasksSlice';
+import { useSelector, useDispatch } from "react-redux";
+import { setGuestMode, resetAuth, selectAuth } from "@/store/slices/authSlice";
+import {
+  addGuestTask,
+  clearGuestTasks,
+  selectGuestTasks,
+} from "@/store/slices/tasksSlice";
 
 export default function ReduxTest() {
   const dispatch = useDispatch();
@@ -17,9 +21,9 @@ export default function ReduxTest() {
     const newTask = {
       id: `task_${Date.now()}`,
       title: `Test Task ${guestTasks.length + 1}`,
-      description: 'This is a test task',
-      priority: 'medium',
-      status: 'todo',
+      description: "This is a test task",
+      priority: "medium",
+      status: "todo",
       created_at: new Date().toISOString(),
     };
     dispatch(addGuestTask(newTask));
@@ -35,18 +39,24 @@ export default function ReduxTest() {
 
   return (
     <div className="p-4 border border-border rounded-lg bg-secondary">
-      <h3 className="text-lg font-semibold mb-4 text-secondary-foreground">Redux Store Test</h3>
+      <h3 className="text-lg font-semibold mb-4 text-secondary-foreground">
+        Redux Store Test
+      </h3>
 
       <div className="space-y-4">
         <div>
-          <h4 className="font-medium text-secondary-foreground mb-2">Auth State:</h4>
+          <h4 className="font-medium text-secondary-foreground mb-2">
+            Auth State:
+          </h4>
           <pre className="text-sm bg-background text-foreground p-3 rounded border border-border overflow-x-auto">
             {JSON.stringify(auth, null, 2)}
           </pre>
         </div>
 
         <div>
-          <h4 className="font-medium text-secondary-foreground mb-2">Guest Tasks ({guestTasks.length}):</h4>
+          <h4 className="font-medium text-secondary-foreground mb-2">
+            Guest Tasks ({guestTasks.length}):
+          </h4>
           <pre className="text-sm bg-background text-foreground p-3 rounded border border-border max-h-32 overflow-y-auto">
             {JSON.stringify(guestTasks, null, 2)}
           </pre>
